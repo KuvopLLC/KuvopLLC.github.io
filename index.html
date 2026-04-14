@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuvop LLC</title>
+  <meta name="description" content="Kuvop LLC builds developer tools and open-source software.">
+  <link rel="icon" href="logo.png" type="image/png">
+  <style>
+    :root {
+      --bg: #ffffff; --bg-alt: #f8f7f6; --bg-code: #1e1e2e;
+      --text: #2d3035; --text-muted: #6b7280;
+      --accent: #c4875a; --accent-hover: #b3764a; --accent-light: rgba(196,135,90,0.08);
+      --charcoal: #2d3035; --charcoal-mid: #3a3d42; --charcoal-light: #4d5058;
+      --copper: #c4875a; --copper-light: #d4a070;
+      --border: #e5e2de; --radius: 10px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1a1b1e; --bg-alt: #222326; --bg-code: #16171a;
+        --text: #e8e4df; --text-muted: #9a958e;
+        --accent: #d4a070; --accent-hover: #e0b080; --accent-light: rgba(212,160,112,0.1);
+        --charcoal: #e8e4df; --charcoal-mid: #c8c4bf; --charcoal-light: #a8a49f;
+        --border: #333538;
+      }
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    .container { max-width: 840px; margin: 0 auto; padding: 0 24px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+
+    /* Hero */
+    .hero { text-align: center; padding: 80px 0 48px; }
+    .hero img { width: 120px; height: 120px; object-fit: contain; margin-bottom: 24px; border-radius: 16px; }
+    .hero h1 { font-size: 36px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; color: var(--text); }
+    .hero .tagline { font-size: 18px; color: var(--text-muted); max-width: 480px; margin: 0 auto 32px; }
+    .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; padding: 10px 24px; border-radius: var(--radius); font-size: 14px; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-hover); color: #fff; }
+    .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .btn-secondary:hover { border-color: var(--text-muted); color: var(--text); }
+
+    /* Divider */
+    .copper-line { border: none; height: 1px; background: linear-gradient(to right, transparent, var(--copper), transparent); margin: 48px 0; }
+
+    /* Projects */
+    .projects { padding: 0 0 16px; }
+    .projects h2 { font-size: 20px; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.3px; text-align: center; }
+    .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .project-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; transition: border-color 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
+    .project-card:hover { border-color: var(--copper-light); box-shadow: 0 2px 12px rgba(196,135,90,0.08); }
+    .project-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+    .project-card h3 a { color: var(--text); }
+    .project-card h3 a:hover { color: var(--accent); }
+    .project-card p { font-size: 14px; color: var(--text-muted); margin-bottom: 12px; flex: 1; }
+    .project-meta { display: flex; gap: 12px; font-size: 12px; color: var(--text-muted); }
+    .project-meta span { display: inline-flex; align-items: center; gap: 4px; }
+
+    /* About */
+    .about { padding: 0 0 16px; }
+    .about h2 { font-size: 20px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.3px; text-align: center; }
+    .about p { font-size: 14px; color: var(--text-muted); max-width: 600px; margin: 0 auto 10px; text-align: center; }
+
+    /* Callout */
+    .callout { background: var(--accent-light); border-left: 3px solid var(--accent); border-radius: 0 var(--radius) var(--radius) 0; padding: 16px 20px; margin: 24px 0; font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+    .callout strong { color: var(--text); }
+
+    /* Footer */
+    footer { padding: 32px 0; text-align: center; color: var(--text-muted); font-size: 13px; }
+    footer a { color: var(--text-muted); text-decoration: underline; }
+    footer a:hover { color: var(--accent); }
+    footer .footer-links { margin-bottom: 8px; }
+    footer .footer-links a { margin: 0 8px; }
+
+    @media (max-width: 600px) {
+      .project-grid { grid-template-columns: 1fr; }
+      .hero { padding: 56px 0 36px; }
+      .hero h1 { font-size: 28px; }
+      .hero .tagline { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="hero">
+    <img src="logo.png" alt="Kuvop">
+    <h1>Kuvop</h1>
+    <p class="tagline">Developer tools and open-source software.</p>
+    <div class="hero-actions">
+      <a href="https://github.com/KuvopLLC" class="btn btn-primary">GitHub</a>
+    </div>
+  </div>
+
+  <hr class="copper-line">
+
+  <section class="projects">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3><a href="https://github.com/KuvopLLC/better-bear">Better Bear</a></h3>
+        <p>MCP server and CLI for Bear notes. Let Claude read, search, create, and edit your notes. Powered by CloudKit.</p>
+        <div class="project-meta">
+          <span>Swift + TypeScript</span>
+          <span>MIT</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <h3><a href="https://github.com/KuvopLLC/purroxy2">Purroxy</a></h3>
+        <p>Record what you do on any website. Securely automate it forever. Desktop app with MCP integration.</p>
+        <div class="project-meta">
+          <span>TypeScript + Electron</span>
+          <span>Apache-2.0</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="copper-line">
+
+  <section class="about">
+    <h2>About</h2>
+    <p>Kuvop LLC builds tools that connect AI assistants to the apps and data people already use. Based in New York.</p>
+  </section>
+
+  <hr class="copper-line">
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://github.com/KuvopLLC">GitHub</a>
+      <a href="https://better-bear.com">Better Bear</a>
+      <a href="mailto:mreider@gmail.com">Contact</a>
+    </div>
+    <p>&copy; 2026 Kuvop LLC</p>
+  </footer>
+
+</div>
+</body>
+</html>
